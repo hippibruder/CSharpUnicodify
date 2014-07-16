@@ -15,16 +15,16 @@ namespace Unicodify
     {
         static void Main()
         {
-            //var source = SourceText.From(Console.OpenStandardInput());
+            var source = new StreamReader(Console.OpenStandardInput()).ReadToEnd();
             //var source = SourceText.From("using System;using System.IO;class ß{static void Main(){ä(new FileInfo(\"i.txt\"),new FileInfo(\"o.txt\"));}static void ä(FileInfo î,FileInfo ö){StreamReader à=new StreamReader(î.OpenRead());StreamWriter b=new StreamWriter(ö.OpenWrite());b.Write(à.ReadToEnd().Replace(\"\\n\",\"\").Replace(\"\\r\",\"\"));à.Close();b.Close();}}");
-            var source = SourceText.From(
-@"class HelloWorld
-{
-    static void Main()
-    {
-        System.Console.WriteLine(""Hello World\u0021"");
-    }
-}");
+//            var source = SourceText.From(
+//@"class HelloWorld
+//{
+//    static void Main()
+//    {
+//        System.Console.WriteLine(""Hello World\u0021"");
+//    }
+//}");
 
             var tree = CSharpSyntaxTree.ParseText(source);
             var root = (CompilationUnitSyntax)tree.GetRoot();
