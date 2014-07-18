@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicodify", "Unicodify.csproj", "{80E02723-BDEE-4E80-827A-43C3742D3787}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpUnicodify", "CSharpUnicodify.csproj", "{80E02723-BDEE-4E80-827A-43C3742D3787}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

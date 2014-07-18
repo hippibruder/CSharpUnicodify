@@ -1,13 +1,9 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.Text;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Unicodify
 {
@@ -16,15 +12,8 @@ namespace Unicodify
         static void Main()
         {
             var source = new StreamReader(Console.OpenStandardInput()).ReadToEnd();
-            //var source = SourceText.From("using System;using System.IO;class ß{static void Main(){ä(new FileInfo(\"i.txt\"),new FileInfo(\"o.txt\"));}static void ä(FileInfo î,FileInfo ö){StreamReader à=new StreamReader(î.OpenRead());StreamWriter b=new StreamWriter(ö.OpenWrite());b.Write(à.ReadToEnd().Replace(\"\\n\",\"\").Replace(\"\\r\",\"\"));à.Close();b.Close();}}");
-//            var source = SourceText.From(
-//@"class HelloWorld
-//{
-//    static void Main()
-//    {
-//        System.Console.WriteLine(""Hello World\u0021"");
-//    }
-//}");
+            //var source = "using System;using System.IO;class ß{static void Main(){ä(new FileInfo(\"i.txt\"),new FileInfo(\"o.txt\"));}static void ä(FileInfo î,FileInfo ö){StreamReader à=new StreamReader(î.OpenRead());StreamWriter b=new StreamWriter(ö.OpenWrite());b.Write(à.ReadToEnd().Replace(\"\\n\",\"\").Replace(\"\\r\",\"\"));à.Close();b.Close();}}";
+            //var source = @"class HelloWorld { static void Main() { System.Console.WriteLine(""Hello World\u0021""); } }";
 
             var tree = CSharpSyntaxTree.ParseText(source);
             var root = (CompilationUnitSyntax)tree.GetRoot();
